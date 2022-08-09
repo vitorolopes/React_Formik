@@ -5,11 +5,13 @@ import Users from './pages/Users';
 import User from './pages/User';
 import Contact from './pages/Contact'
 import './App.css';
-
+import { useThemeContext } from "./context/ThemeContextProvider";
 
 function App() {
+  const {dummyValue, theme} = useThemeContext();
+
   return (
-    <div className='app'>
+    <div className={`app ${theme}`}>
       <Router>
 
         <Navbar/>

@@ -3,14 +3,20 @@ import React, {useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
+import { useThemeContext } from "../context/ThemeContextProvider";
 
 const Navbar = () => {
+
+  const {setTheme, theme} = useThemeContext();
 
   return (
     <div className='navbar' >
       <div className="icon">
           <a href="#"   id="btnTheme">
-            <FontAwesomeIcon icon={faMoon} />
+            <FontAwesomeIcon icon={faMoon} 
+                             onClick={() => setTheme( theme === "dark" ? "light" : "dark") }
+
+            />
          </a>
       </div>
  
