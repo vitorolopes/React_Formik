@@ -4,14 +4,14 @@ const ThemeContext = createContext();
 
 export const ThemeContextProvider = ( {children} ) => {
 
-    const  dummyValue = "This is a dummy value"
+   
 
     const [theme, setTheme] = useState("light")
 
     return(
         <ThemeContext.Provider
             value={{
-                dummyValue,
+              
                 theme,
                 setTheme
             }}
