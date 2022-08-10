@@ -4,16 +4,16 @@ const ThemeContext = createContext();
 
 export const ThemeContextProvider = ( {children} ) => {
 
-   
-
     const [theme, setTheme] = useState("light")
+
+    const usersURL = "https://jsonplaceholder.typicode.com/users";
 
     return(
         <ThemeContext.Provider
             value={{
-              
                 theme,
-                setTheme
+                setTheme,
+                usersURL
             }}
         >
             {children}

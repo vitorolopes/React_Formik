@@ -3,11 +3,9 @@ import axios from 'axios';
 import { useThemeContext } from '../context/ThemeContextProvider';
 import { Link } from 'react-router-dom';
 
-const usersURL = "https://jsonplaceholder.typicode.com/users";
-
 const Users = () => {
 
-  const {theme} = useThemeContext();
+  const {theme, usersURL} = useThemeContext();
 
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true)
@@ -34,8 +32,9 @@ const Users = () => {
              (
                users.map( user => {
                 const {id,name,phone,username,email} = user
+            
                 return(
-                  <div className="col-md-4 my-2">
+                  <div className="col-md-4 my-2" key={id}>
                     <div className={`card bg-${theme}`}>
 
                       <div className="w-100">
@@ -62,7 +61,7 @@ const Users = () => {
                             </li>
 
                         </ul>
-                        <Link to="/" className='btn btn-outline-primary'>
+                        <Link to={`/user/${id}`} className='btn btn-outline-primary'>
                           Show more details
                         </Link>
                       </div>
